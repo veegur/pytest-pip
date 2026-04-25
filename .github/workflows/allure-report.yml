@@ -12,15 +12,15 @@ on:
       BROWSER:
         description: Browser
         required: false
-        default: Chrome
+        default: chrome
       OS:
         description: OS
         required: false
-        default: Windows 
+        default: windows 
       ASR_DEVICE:
         description: DEVICE
         required: false
-        default: Galaxy s25 Plus 
+        default: iPhone 
       ASR_LANGUAGE:
         description: LANGUAGE
         required: false
