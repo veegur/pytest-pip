@@ -1,4 +1,4 @@
-name: Allure Testops
+name: Testops
 
 on:
   schedule:
@@ -11,7 +11,7 @@ on:
       ENDPOINT:
         description: Endpoint
         required: false
-        default: demo.qatools.cloud
+        default: demo.qatools.cloud/
       BROWSER:
         description: Browser
         required: false
@@ -20,14 +20,6 @@ on:
         description: OS
         required: false
         default: macOS 
-      ASR_DEVICE:
-        description: DEVICE
-        required: false
-        default: Galaxy s25 Plus 
-      ASR_LANGUAGE:
-        description: LANGUAGE
-        required: false
-        default: Ko 
       ALLURE_USERNAME:
         description: "ALLURE_USERNAME service parameter. Leave blank"
         required: false
@@ -61,15 +53,13 @@ jobs:
         with:
           allure-endpoint: https://demo.qatools.cloud/
           allure-token: ${{ secrets.ALLURE_TOKEN }}
-          allure-project-id: 284
+          allure-project-id: 127
           
       - name: Run tests
         run: allurectl watch -- pytest --alluredir=${ALLURE_RESULTS} --capture=no
         env:
           ENDPOINT: ${{ github.event.inputs.ENDPOINT}}
           BROWSER: ${{ github.event.inputs.BROWSER}}
-          ASR_DEVICE: ${{ github.event.inputs.ASR_DEVICE}}
-          ASR_LANGUAGE: ${{ github.event.inputs.ASR_LANGUAGE}}
           OS: ${{ github.event.inputs.OS}}
           ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
           ALLURE_RESULTS: "allure-results"
