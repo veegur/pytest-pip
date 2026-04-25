@@ -1,9 +1,6 @@
 name: Allure Report
 
 on:
-  push:
-    branches-ignore:
-      - '!main'
   workflow_dispatch: # Событие, при котором можно запустить процесс вручную
     inputs:          # Блок с параметрами, которые будут запрошены при ручном запуске
       TESTS_BROWSER:
