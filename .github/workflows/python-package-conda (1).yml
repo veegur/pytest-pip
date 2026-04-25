@@ -5,27 +5,27 @@ on:
     - cron: "0 */12 * * *"
   workflow_dispatch:
     inputs:
-      ALLURE_JOB_RUN_ID:
-        description: ALLURE_JOB_RUN_ID - service parameter (leave blank)
-        required: false
       ENDPOINT:
         description: Endpoint
         required: false
-        default: demo.qatools.cloud/
+        default: avigur.qatools.cloud/
       BROWSER:
         description: Browser
         required: false
-        default: Opera
+        default: chrome
       OS:
         description: OS
         required: false
         default: macOS 
+      ALLURE_JOB_RUN_ID:
+        description: "TestOps service parameter. Leave blank"
+        required: false
       ALLURE_USERNAME:
-        description: "ALLURE_USERNAME service parameter. Leave blank"
+        description: "TestOps service parameter. Leave blank"
         required: false
 
 env:
-  ALLURE_ENDPOINT: https://demo.qatools.cloud/
+  ALLURE_ENDPOINT: https://avigur.qatools.cloud/
   ALLURE_PROJECT_ID: 284
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
