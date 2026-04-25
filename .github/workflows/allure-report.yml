@@ -4,6 +4,16 @@ on:
   push:
     branches-ignore:
       - '!main'
+  workflow_dispatch: # Событие, при котором можно запустить процесс вручную
+    inputs:          # Блок с параметрами, которые будут запрошены при ручном запуске
+      TESTS_BROWSER:
+        description: "Browser to use for tests" # Описание параметра
+        required: true                         # Обязательный ли параметр?
+        default: "chrome"                      # Значение по умолчанию
+      PRODUCT_VERSION:
+        description: "Product version"
+        required: true
+        default: "1.23"
 
 jobs:
   autotests:
@@ -54,3 +64,8 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
+
+env: # Блок с переменными окружения
+  TESTS_BROWSER: ${{ github.event.inputs.TESTS_BROWSER }} # Значение параметра передается в переменную
+  PRODUCT_VERSION: ${{ github.event.inputs.PRODUCT_VERSION }}
+  # ... остальные переменные ...
