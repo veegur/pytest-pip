@@ -3,10 +3,23 @@ name: Run Selected Pytest Tests
 on:
   workflow_dispatch:
     inputs:
+      ALLURE_JOB_RUN_ID:
+        description: "TestOps service parameter. Leave blank"
+        required: false
+      ALLURE_USERNAME:
+        description: "TestOps service parameter. Leave blank"
+        required: false
       test_files:
         description: 'Test files to run (space-separated paths)'
         required: true
         default: 'tests/test_api.py'
+        
+env:
+  ALLURE_ENDPOINT: https://avigur.qatools.cloud/
+  ALLURE_PROJECT_ID: 284
+  ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
+  ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
+  ALLURE_RESULTS: "allure-results"
 
 jobs:
   test:
