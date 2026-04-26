@@ -41,6 +41,10 @@ jobs:
         
     - name: Install allurectl
       uses: allure-framework/setup-allurectl@v1
+      with:
+          allure-endpoint: https://avigur.qatools.cloud/
+          allure-token: ${{ secrets.ALLURE_TOKEN }}
+          allure-project-id: 2
 
     - name: Run selected tests
       run: |
