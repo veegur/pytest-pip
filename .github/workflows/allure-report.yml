@@ -5,6 +5,9 @@ on:
     - cron: "0 */12 * * *"
   workflow_dispatch:
     inputs:
+      ALLURE_JOB_RUN_ID:
+        description: ALLURE_JOB_RUN_ID - service parameter (leave blank)
+        required: false
       ENDPOINT:
         description: Endpoint
         required: false
@@ -12,24 +15,21 @@ on:
       BROWSER:
         description: Browser
         required: false
-        default: chrome
+        default: Opera
       OS:
         description: OS
         required: false
-        default: windows 
+        default: macOS 
       ASR_DEVICE:
         description: DEVICE
         required: false
-        default: iPhone 
+        default: Galaxy s25 Plus 
       ASR_LANGUAGE:
         description: LANGUAGE
         required: false
         default: Ko 
-      ALLURE_JOB_RUN_ID:
-        description: "TestOps service parameter. Leave blank"
-        required: false
       ALLURE_USERNAME:
-        description: "TestOps service parameter. Leave blank"
+        description: "ALLURE_USERNAME service parameter. Leave blank"
         required: false
 
 env:
