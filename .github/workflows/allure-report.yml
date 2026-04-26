@@ -34,7 +34,7 @@ on:
 
 env:
   ALLURE_ENDPOINT: https://avigur.qatools.cloud/
-  ALLURE_PROJECT_ID: 2
+  ALLURE_PROJECT_ID: 284
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
   ALLURE_RESULTS: "allure-results"
@@ -61,7 +61,7 @@ jobs:
         with:
           allure-endpoint: https://avigur.qatools.cloud/
           allure-token: ${{ secrets.ALLURE_TOKEN }}
-          allure-project-id: 2
+          allure-project-id: 284
           
       - name: Run tests
         run: allurectl watch -- pytest --alluredir=${ALLURE_RESULTS} --capture=no
